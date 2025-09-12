@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NYUAD Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -23,40 +26,78 @@
     <div class="content">
       <h1>Welcome to the NYUAD Library</h1>
       <p>Your journey begins here — explore, learn, and connect.</p>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn left" onclick="document.getElementById('hero-carousel-track').scrollBy({ left: -600, behavior: 'smooth' })">&#60;</button>
+        <div class="carousel">
+          <div class="carousel-track" id="hero-carousel-track">
+            <img src="nyuadlib.jpg" alt="NYUAD Library" class="carousel-img" />
+            <img src="nyuadlib1.jpg" alt="NYUAD Library 1" class="carousel-img" />
+            <img src="nyuadlib2.jpg" alt="NYUAD Library 2" class="carousel-img" />
+          </div>
+        </div>
+        <button class="carousel-btn right" onclick="document.getElementById('hero-carousel-track').scrollBy({ left: 600, behavior: 'smooth' })">&#62;</button>
+      </div>
       <a href="#resources" class="btn">Explore Resources</a>
     </div>
   </section>
 
   <!-- Virtual Tour Section -->
-  <section id="tour" class="section tour">
-    <div class="content">
-      <h2>Virtual Tour</h2>
-      <p>Get acquainted with your new home through our virtual library tour.</p>
-      <ul>
-        <li>Writing Center</li>
-        <li>Center for Academic Technology</li>
-        <li>Study Rooms & Computers</li>
-        <li>Academic Resource Center</li>
-      </ul>
+    <section id="tour" class="section tour">
+      <div class="content">
+        <h2>Virtual Tour</h2>
+        <p>The NYU Abu Dhabi Library, located in the Campus Center, is a hub for learning, research, and collaboration. It offers extensive collections of books, journals, and digital resources, alongside study spaces and research support. Serving students, faculty, and the wider community, it fosters academic excellence and intellectual discovery</p>
+        <div class="video-crop-container">
+          <iframe src="https://drive.google.com/file/d/1dCWmOY6EstPJcS14Nh-aTzsc1w9bHKrm/preview" width="640" height="480" allow="autoplay"></iframe>
+        </div>
+      </div>
     </div>
   </section>
+
 
   <!-- Resources Section -->
   <section id="resources" class="section resources">
     <div class="content">
       <h2>Library Resources</h2>
-      <p>We provide access to books, journals, e-resources, and study spaces to support your academic journey.</p>
+      <p>Explore wide range of resources to support your academic journey</p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="writing center.jpeg" alt="Writing Center" />
+          <span class="gallery-label">Books & E-books</span>
+        </div>
+        <div class="gallery-item">
+          <img src="CAT.png" alt="Center for Academic Technology" />
+          <span class="gallery-label">Research Databases</span>
+        </div>
+        <div class="gallery-item">
+          <img src="ARC.png" alt="Academic Resource Center" />
+          <span class="gallery-label">Study Spaces</span>
+        </div>
+        <div class="gallery-item">
+          <img src="reading room.png" alt="Reading Room" />
+          <span class="gallery-label">Workshops & Events</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contacts Section -->
-  <section id="contacts" class="section contacts">
+<section id="contacts" class="section contacts">
     <div class="content">
       <h2>Contact Us</h2>
-      <p><strong>Name:</strong> Därmen Aussarbekov</p>
-      <p><strong>Email:</strong> da3490@nyu.edu</p>
-      <p><strong>Instagram:</strong> @darveloff</p>
-      <p><strong>LinkedIn:</strong> (link)</p>
+      <div class="contact-cards-container">
+        <div class="contact-card">
+          <img src="Gmail Icon.png" alt="Gmail Icon">
+          <a href="mailto:da3490@nyu.edu">Email</a>
+        </div>
+        <div class="contact-card">
+          <img src="Instagram Icon.png" alt="Instagram Icon">
+          <a href="https://www.instagram.com/darveloff" target="_blank">Instagram</a>
+        </div>
+        <div class="contact-card">
+          <img src="LinkedIn icon.png" alt="LinkedIn Icon">
+          <a href="www.linkedin.com/in/darmen-aussarbekov" target="_blank">LinkedIn</a>
+        </div>
+      </div>
     </div>
   </section>
 

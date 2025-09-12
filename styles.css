@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --purple: #5b2e8a;
   --light-purple: #7a4fb8;
@@ -12,11 +16,10 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.5;
   color: var(--text);
   background: var(--white);
-  scroll-behavior: smooth;
 }
 
 /* Header */
@@ -55,7 +58,7 @@ header nav a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 80px 40px 40px; /* Increased top padding */
   text-align: center;
 }
 
@@ -68,35 +71,218 @@ header nav a:hover {
   color: var(--white);
 }
 
+/* Hero Carousel */
+.carousel {
+  width: 600px;
+  height: 350px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tour .content {
+  max-width: 800px; /* Allow more space for the video */
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* This is the key part */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scroll-snap-align: start; /* Snaps each image to the start */
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 8px auto; /* Reduced top/bottom margin from 32px */
+}
+
+.carousel-btn {
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .tour {
   background: #f7f4fa;
+}
+
+.video-crop-container {
+  width: 640px;
+  height: 364px; /* Original height 480px - 30px top - 30px bottom */
+  overflow: hidden;
+  position: relative;
+  margin: 24px auto 0;
+  border-radius: 24px; /* Rounded corners on the container */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.video-crop-container iframe {
+  position: absolute;
+  top: -58px; /* Move video up to hide the top 55px */
+  left: 0;
+  width: 100%;
+  height: 480px; /* Keep original height */
+  border: 0;
 }
 
 .resources {
   background: #fff;
 }
 
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.gallery-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid #888;
+  background: transparent;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  margin: 0 24px;
+  transition: background 0.2s;
+}
+
+.gallery-btn:hover {
+  background: #eee;
+}
+
+.gallery {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  position: relative;
+  width: 250px;
+  height: 180px;
+  border: 1px solid #888;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-label {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(90, 46, 138, 0.85); /* semi-transparent purple */
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(90, 46, 138, 0.15);
+}
+
+/* ...existing code... */
 .contacts {
   background: #f0ebf8;
+}
+/* ...existing code... */
+.contact-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 32px;
+}
+
+.contact-card {
+  width: 180px;
+  height: 280px;
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Changed from 'cover' to 'contain' */
+  flex-grow: 1;
+  padding: 20px; /* Adds some space around the logos */
+}
+
+.contact-card a {
+  text-decoration: none;
+  color: var(--purple);
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 16px;
+  text-align: center;
+  flex-shrink: 0; /* Prevents the link from shrinking */
+}
+
+.contact-card a:hover {
+  color: var(--light-purple);
 }
 
 h1, h2 {
   margin-bottom: 16px;
+  text-align: center;
 }
 
-p, ul {
+p {
   margin-bottom: 12px;
+  text-align: center;
 }
 
-ul {
-  list-style: none;
-}
-
-ul li {
-  margin: 6px 0;
-}
-
-/* Button */
 .btn {
   display: inline-block;
   background: var(--white);
@@ -105,7 +291,6 @@ ul li {
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 12px;
 }
 
 .btn:hover {
