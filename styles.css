@@ -1,18 +1,18 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* smooth scroll for anchor links */
 }
 
 :root {
-  --purple: #5b2e8a;
-  --light-purple: #7a4fb8;
-  --white: #ffffff;
-  --text: #222;
+  --purple: #5b2e8a; /* main purple */
+  --light-purple: #7a4fb8; /* lighter purple */
+  --white: #ffffff; /* white */
+  --text: #222; /* default text color */
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* makes sizing easier */
 }
 
 body {
@@ -22,9 +22,9 @@ body {
   background: var(--white);
 }
 
-/* Header */
+/* header */
 header {
-  position: fixed;
+  position: fixed; /* stays on top */
   top: 0;
   left: 0;
   width: 100%;
@@ -34,7 +34,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
-  z-index: 1000;
+  z-index: 1000; /* on top of other sections */
 }
 
 header .logo img {
@@ -53,26 +53,27 @@ header nav a:hover {
   text-decoration: underline;
 }
 
-/* Sections */
+/* general section styles */
 .section {
-  min-height: 100vh;
+  min-height: 100vh; /* full screen height */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 40px 40px; /* Increased top padding */
+  padding: 80px 40px 40px; /* extra padding at top so header doesn’t overlap */
   text-align: center;
 }
 
 .section .content {
-  max-width: 600px;
+  max-width: 600px; /* keeps text readable */
 }
 
+/* hero section */
 .hero {
   background: linear-gradient(135deg, var(--purple), var(--light-purple));
   color: var(--white);
 }
 
-/* Hero Carousel */
+/* carousel setup */
 .carousel {
   width: 600px;
   height: 350px;
@@ -86,11 +87,11 @@ header nav a:hover {
   width: 100%;
   height: 100%;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory; /* This is the key part */
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scroll-snap-type: x mandatory; /* makes slides snap in place */
+  -webkit-overflow-scrolling: touch; /* smooth on ios */
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* hides scroll bar */
 .carousel-track::-webkit-scrollbar {
   display: none;
 }
@@ -100,7 +101,7 @@ header nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  scroll-snap-align: start; /* Snaps each image to the start */
+  scroll-snap-align: start;
 }
 
 .carousel-wrapper {
@@ -108,7 +109,7 @@ header nav a:hover {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 8px auto; /* Reduced top/bottom margin from 32px */
+  margin: 8px auto;
 }
 
 .carousel-btn {
@@ -127,18 +128,19 @@ header nav a:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* background images behind sections */
 .background-image {
   position: absolute;
   z-index: 1;
   opacity: 0.4;
   pointer-events: none;
-  background-size: contain; /* This prevents cropping */
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
-/* Books background for tour section */
+/* books image for tour */
 .books-bg {
-   bottom: 0;
+  bottom: 0;
   left: 0;
   width: 35%;
   height: 50%;
@@ -146,7 +148,7 @@ header nav a:hover {
   background-position: left top;
 }
 
-/* Macbook background for resources section */
+/* macbook image for resources */
 .macbook-bg {
   top: 0;
   right: 0;
@@ -156,27 +158,29 @@ header nav a:hover {
   background-position: right top;
 }
 
+/* backgrounds for tour and resources */
 .tour, .resources {
   background: #f7f4fa;
   position: relative;
-  overflow: hidden; /* This contains the background images */
+  overflow: hidden; /* keeps bg images inside */
 }
 
-/* Adjust content positioning if needed */
+/* keeps content above the bg images */
 .tour .content, .resources .content {
   max-width: 800px;
-  margin: 0 auto; /* This ensures the content stays centered */
+  margin: 0 auto;
   position: relative;
-  z-index: 3; /* Higher z-index to keep content above background images */
+  z-index: 3;
 }
 
+/* video container */
 .video-crop-container {
   width: 640px;
-  height: 480px; /* Original height 480px - 30px top - 30px bottom */
+  height: 480px;
   overflow: hidden;
   position: relative;
   margin: 24px auto 0;
-  border-radius: 24px; /* Rounded corners on the container */
+  border-radius: 24px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -184,40 +188,17 @@ header nav a:hover {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 480px; /* Keep original height */
+  height: 480px;
   border: 0;
 }
 
-.gallery {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 32px;
-}
-
-.gallery-btn {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 1px solid #888;
-  background: transparent;
-  font-size: 2rem;
-  color: #888;
-  cursor: pointer;
-  margin: 0 24px;
-  transition: background 0.2s;
-}
-
-.gallery-btn:hover {
-  background: #eee;
-}
-
+/* gallery */
 .gallery {
   display: flex;
   gap: 24px;
   justify-content: center;
   margin-top: 32px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* makes it responsive */
 }
 
 .gallery-item {
@@ -244,7 +225,7 @@ header nav a:hover {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  background: rgba(90, 46, 138, 0.85); /* semi-transparent purple */
+  background: rgba(90, 46, 138, 0.85); /* purple with transparency */
   color: #fff;
   padding: 6px 14px;
   border-radius: 8px;
@@ -253,11 +234,11 @@ header nav a:hover {
   box-shadow: 0 2px 8px rgba(90, 46, 138, 0.15);
 }
 
-/* ...existing code... */
+/* contacts section */
 .contacts {
   background: #f0ebf8;
 }
-/* ...existing code... */
+
 .contact-cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -279,7 +260,7 @@ header nav a:hover {
 }
 
 .contact-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px); /* lifts card up */
 }
 
 .contact-card img {
@@ -287,7 +268,7 @@ header nav a:hover {
   height: 100%;
   object-fit: contain; 
   flex-grow: 1;
-  padding: 20px; /* Adds some space around the logos */
+  padding: 20px;
 }
 
 .contact-card a {
@@ -297,22 +278,22 @@ header nav a:hover {
   font-size: 1.1rem;
   padding: 16px;
   text-align: center;
-  flex-shrink: 0; /* Prevents the link from shrinking */
+  flex-shrink: 0;
 }
 
 .contact-card a:hover {
   color: var(--light-purple);
 }
 
+/* headings animation */
 h1, h2 {
   margin-bottom: 16px;
-  /* Initial state for animation */
   opacity: 0;
   transform: translateY(-30px);
   transition: opacity 1.0s ease-out, transform 1.0s ease-out;
 }
 
-/* The state when the element becomes visible */
+/* when visible */
 h1.is-visible, h2.is-visible {
   opacity: 1;
   transform: translateY(0);
@@ -323,6 +304,7 @@ p {
   text-align: center;
 }
 
+/* button style */
 .btn {
   display: inline-block;
   background: var(--white);
@@ -338,7 +320,7 @@ p {
   color: var(--white);
 }
 
-/* Footer */
+/* footer */
 footer {
   text-align: center;
   padding: 20px;
